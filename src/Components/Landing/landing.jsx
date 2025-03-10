@@ -1,18 +1,31 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom'; // To handle navigation
-import './landing.css'; // Add your custom styles here
+
+import React, { useState } from 'react';
+import './landing.css';
 
 const Landing = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Toggle the menu visibility
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
-        <div className="landing-container">
-            <div className="landing-box">
-                <h1 className="landing-heading">Welcome </h1>
-                <div className="button-container">
-                    <Link to="/about" className="landing-button">About Us</Link>
-                    <Link to="/registration" className="landing-button">Registration</Link>
-                    <Link to="/login" className="landing-button">Login</Link>
+        <div className="body-container">
+            {/* Top Section - Contains the hamburger menu */}
+            <div className="top-section">
+                {/* Hamburger Menu */}
+                <div className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+                    <div className="hamburger-icon"></div>
+                    <div className="hamburger-icon"></div>
+                    <div className="hamburger-icon"></div>
                 </div>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="bottom-section">
+                <p>This is the bottom section content. You can add more content here as needed.</p>
             </div>
         </div>
     );

@@ -1,47 +1,64 @@
 /* landing.css */
-.landing-container {
+
+/* Body container to split the screen */
+.body-container {
+    display: flex;
+    flex-direction: column;  /* Stack children vertically */
+    height: 100vh; /* Full screen height */
+}
+
+/* Top section - increase the width */
+.top-section {
+    height: 160px; /* Height of the top section */
+    background-color: #9A8C98; /* Optional background color */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+    position: relative;  /* To position the hamburger menu inside */
+    width: 100%;  /* Ensure it takes full width */
+    max-width: 11000px; /* Adjust the max-width to make it a bit wider */
+    margin: 0 auto; /* Center the top section */
 }
 
-.landing-box {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
+/* Bottom section */
+.bottom-section {
+    flex: 1; /* Takes the remaining space */
+    background-color: #C9ADA7; /* Optional background color */
+    padding: 20px; /* Padding for content */
+    text-align: center; /* Center the content */
 }
 
-.landing-heading {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.button-container {
+/* Hamburger Menu - Positioned inside the top section */
+.hamburger-menu {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
 }
 
-.landing-button {
-    background-color: #b79b9b;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 16px;
+.hamburger-icon {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
     border-radius: 5px;
-    text-align: center;
-    display: block;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.landing-button:hover {
-    background-color: #616870;
+/* When hamburger is clicked, rotate and animate */
+.hamburger-menu.open .hamburger-icon:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 10px;
+}
+
+.hamburger-menu.open .hamburger-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .hamburger-icon:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -10px;
 }
