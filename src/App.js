@@ -4,6 +4,10 @@ import RegistrationForm from './Components/Authentication/Registration/registrat
 import BusinessForm from './Components/Authentication/Business/business.jsx';
 import LoginForm from './Components/Authentication/Login/login.jsx';
 import Landing from './Components/Landing/landing';
+import Dashboard from './Components/Dashboard/dashboard.jsx';
+
+
+
 
 function App() {
     return (
@@ -17,6 +21,7 @@ function App() {
                     <Route path="/registration" element={<RegistrationForm />} /> {/* Registration form page */}
                     <Route path="/business" element={<BusinessForm />} /> {/* Business form page */}
                     <Route path="/login" element={<LoginForm />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                 </Routes>
             </div>
         </Router>

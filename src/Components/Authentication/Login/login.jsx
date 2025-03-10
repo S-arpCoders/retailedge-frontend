@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
+import {useNavigate} from "react-router-dom";
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const LoginForm = () => {
         businessNumber: '',
         email: '',
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,6 +21,8 @@ const LoginForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form Submitted:', formData);
+
+        navigate('/dashboard');
     };
 
     return (
