@@ -5,6 +5,9 @@ import BusinessForm from './Components/Authentication/Business/business.jsx';
 import LoginForm from './Components/Authentication/Login/login.jsx';
 import Landing from './Components/Landing/landing';
 import Dashboard from './Components/Dashboard/dashboard.jsx';
+import 'font-awesome/css/font-awesome.min.css';
+//import  Navbar from '/Components/Authentication/Navbar/navbar.jsx';
+
 
 
 
@@ -13,7 +16,7 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <h1>SCAN OR GIVE ME YOUR MONEYYYYYY</h1>
+
 
                 {/* Set up the routes for different forms */}
                 <Routes>
