@@ -1,69 +1,63 @@
-import React from 'react';
-import './navbar.css';
-
+import React, { useState } from 'react';
+import './navbar.css'; // Ensure you have this CSS file
 
 const Navbar = () => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
-        <div className="area">
-            <nav className="main-menu">
-                <ul>
-                    <li>
-                        <a href="https://jbfarrow.com">
-                            <i className="fa fa-home fa-2x"></i>
-                            <span className="nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li className="has-subnav">
-                        <a href="#">
-                            <i className="fa fa-globe fa-2x"></i>
-                            <span className="nav-text">Inventory</span>
-                        </a>
-                    </li>
-                    <li className="has-subnav">
-                        <a href="#">
-                            <i className="fa fa-bar-chart"></i>
-                            <span className="nav-text">Reports</span>
-                        </a>
-                    </li>
-                    <li className="has-subnav">
-                        <a href="#">
-                            <i className="fa fa-camera-retro fa-2x"></i>
-                            <span className="nav-text">Suppliers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-film fa-2x"></i>
-                            <span className="nav-text">orders</span>
-                        </a>
-                    </li>
+        //<div className="container">//
+           // <section className="content">
+                <nav
+                    className={`sidebar ${isHovered ? 'hovered' : ''}`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
+                    <ul className="menu">
+                        <li className="selected">
+                            <div className="icon">
+                                <i className="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">vals</div>
+                        </li>
 
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">Dashboard</div>
+                        </li>
 
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-line-chart" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">Reports</div>
+                        </li>
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-list" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">Inventory</div>
+                        </li>
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-area-chart" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">suplies</div>
+                        </li>
 
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">orders</div>
+                        </li>
+                    </ul>
+                </nav>
 
-                </ul>
-
-                <ul className="logout">
-
-                    <li>
-                        <a href="#"></a>
-                        <i className="fa fa-sign-out fa-2x"></i>
-                        <span className="nav-text">Settings</span>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-power-off fa-2x"></i>
-                            <span className="nav-text">Logout</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-        </div>
+            //</section>
+        //</div>
     );
 };
 
 export default Navbar;
-
-
-
