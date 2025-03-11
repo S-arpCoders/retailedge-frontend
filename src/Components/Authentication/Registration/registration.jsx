@@ -7,7 +7,7 @@ const RegistrationForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         surname: '',
-        username: '',
+       number: '',
         password: '',
         email: '',
     });
@@ -61,12 +61,12 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className="formGroup">
-                    <label htmlFor="username" className="label">Username</label>
+                    <label htmlFor="number" className="label">Number</label>
                     <input
                         type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
+                        id="number"
+                        name="number"
+                        value={formData.number}
                         onChange={handleChange}
                         className="input"
                         required
