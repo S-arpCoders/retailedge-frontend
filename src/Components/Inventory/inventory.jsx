@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import './inventoryStyle.css';
+import productService from "../../Services/Products";
 
 const Inventory = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -10,6 +11,8 @@ const Inventory = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
+
+    productService.getAllProducts().then(products => console.log(products));
     // Mock Data for testing
     const sampleData = [
       {
