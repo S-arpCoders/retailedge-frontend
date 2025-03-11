@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './navbar.css';
 
 
@@ -7,39 +8,36 @@ const Navbar = () => {
         <div className="area">
             <nav className="main-menu">
                 <ul>
-                    <li>
-                        <a href="https://jbfarrow.com">
-                            <i className="fa fa-home fa-2x"></i>
-                            <span className="nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li className="has-subnav">
-                        <a href="#">
-                            <i className="fa fa-globe fa-2x"></i>
-                            <span className="nav-text">Inventory</span>
-                        </a>
-                    </li>
-                    <li className="has-subnav">
-                        <a href="#">
+                  <li>
+                    <Link to="/dashboard">
+                      <i className="fa fa-home fa-2x"></i>
+                      <span className="nav-text">Dashboard</span>
+                    </Link>
+                  </li>
+                  <li className="has-subnav">
+                    <Link to="/inventory">
+                      <i className="fa fa-globe fa-2x"></i>
+                      <span className="nav-text">Inventory</span>
+                    </Link>
+                  </li>
+                    <li className="">
+                        <Link to="/report">
                             <i className="fa fa-bar-chart"></i>
                             <span className="nav-text">Reports</span>
-                        </a>
+                        </Link>
                     </li>
-                    <li className="has-subnav">
-                        <a href="#">
+                    <li className="">
+                        <Link to="/suppliers">
                             <i className="fa fa-camera-retro fa-2x"></i>
                             <span className="nav-text">Suppliers</span>
-                        </a>
+                        </Link>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li >
+                        <Link to="/orders">
                             <i className="fa fa-film fa-2x"></i>
                             <span className="nav-text">orders</span>
-                        </a>
+                        </Link>
                     </li>
-
-
-
 
                 </ul>
 
@@ -51,10 +49,10 @@ const Navbar = () => {
                         <span className="nav-text">Settings</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to="/Logout">
                             <i className="fa fa-power-off fa-2x"></i>
                             <span className="nav-text">Logout</span>
-                        </a>
+                        </Link>
                     </li>
 
                 </ul>
