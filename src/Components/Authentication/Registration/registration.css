@@ -1,18 +1,23 @@
 /* Container for the form */
+.body{
+    background-color: #9f86c0;
+}
 .container {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #d3d3d3;
+
+
+
 }
 
 /* Heading style */
 .heading {
     text-align: center;
     color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 /* Form layout */
@@ -41,6 +46,7 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
 }
 
 /* Button styling */

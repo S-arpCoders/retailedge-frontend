@@ -32,7 +32,7 @@ const RegistrationForm = () => {
 
     return (
         <div className="container">
-            <h2 className="heading">Registration Form</h2>
+            <h2 className="heading">Create an Account</h2>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
                     <label htmlFor="name" className="label">Name</label>
