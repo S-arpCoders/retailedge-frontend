@@ -80,7 +80,7 @@ body {
 /* Top Section Styling */
 .top-section {
     height: 160px;
-    background-color: #e7ecef;
+    background-color: #dcd4d4;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -263,19 +263,6 @@ body {
 }
 
 /*ends*/
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Welcome Section Styling */
 .welcome {

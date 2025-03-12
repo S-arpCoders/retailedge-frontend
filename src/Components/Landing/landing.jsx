@@ -95,7 +95,12 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
+                {/* Footer Section - Positioned outside the bottom section */}
+                <footer className="footer">
+                    <p>&copy; 2025 RetailEdge. All rights reserved.</p>
+                </footer>
             </div>
+
         </div>
     );
 };
