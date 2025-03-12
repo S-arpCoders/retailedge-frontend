@@ -1,14 +1,15 @@
+import { API_BASE_URL } from '../config';
+
 export const authService = {
     async login(email, password) {
         try {
-            const response = await fetch("http://172.20.7.73:8080/api/v1/auth/login", {
+            const response = await fetch(`${API_BASE_URL}/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ email, password }),
             });
-
             if (!response.ok) throw new Error("Invalid credentials");
             const data = await response.json();
             localStorage.setItem("token", data.token);
@@ -18,16 +19,15 @@ export const authService = {
         }
     },
 
-    async register(email, password) {
+    async register(formData) {
         try {
-            const response = await fetch("http://localhost:8080/api/v1/auth/register", {
+            const response = await fetch(`${API_BASE_URL}/auth/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify(formData),
             });
-
             if (!response.ok) throw new Error("Registration failed");
             const data = await response.json();
             localStorage.setItem("token", data.token);
