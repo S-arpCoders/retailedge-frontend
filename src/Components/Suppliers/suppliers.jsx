@@ -7,10 +7,10 @@ const Suppliers = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    // Fetch data from the database
+
     const fetchSuppliers = async () => {
       try {
-        const response = await fetch('/api/suppliers'); // Replace with your API endpoint
+        const response = await fetch('/api/suppliers');
         const data = await response.json();
         setSuppliers(data);
       } catch (error) {
@@ -21,7 +21,6 @@ const Suppliers = () => {
     fetchSuppliers();
   }, []);
 
-  // Filter suppliers based on search query
   const filteredSuppliers = suppliers.filter(supplier =>
     supplier.supplierName.toLowerCase().includes(searchQuery.toLowerCase())
   );
