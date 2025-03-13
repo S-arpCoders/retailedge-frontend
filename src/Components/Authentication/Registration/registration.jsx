@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './registration.css';
-
+import { authService } from '../../../Services/Authentication';
 
 const RegistrationForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         surname: '',
-        username: '',
+        number: '',
         password: '',
         email: '',
     });
-    const navigate = useNavigate(); // Initialize the navigate function
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,18 +21,21 @@ const RegistrationForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Form Submitted:', formData);
-
-        // After submitting the form, navigate to the business form
-        navigate('/business'); // Navigate to the business form page
+        try {
+            await authService.register(formData); 
+            navigate('/business'); 
+            console.error("Registration failed:", error);
+         }catch (e) {
+            
+        }
     };
-
 
     return (
         <div className="container">
-            <h2 className="heading">Registration Form</h2>
+            <h2 className="heading">Create an Account</h2>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
                     <label htmlFor="name" className="label">Name</label>
@@ -61,12 +64,12 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className="formGroup">
-                    <label htmlFor="username" className="label">Username</label>
+                    <label htmlFor="number" className="label">Number</label>
                     <input
                         type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
+                        id="number"
+                        name="number"
+                        value={formData.number}
                         onChange={handleChange}
                         className="input"
                         required

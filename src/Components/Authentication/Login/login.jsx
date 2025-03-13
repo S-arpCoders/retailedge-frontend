@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './login.css';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { authService } from "../../../Services/Authentication";
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
-        name: '',
-        businessNumber: '',
-        email: '',
+        username: '',
+        password: '',
     });
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -18,11 +19,16 @@ const LoginForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form Submitted:', formData);
+        setError(null);
 
-        navigate('/dashboard');
+        try {
+            await authService.login(formData.username, formData.password);
+            navigate('/dashboard');
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (
@@ -45,7 +51,7 @@ const LoginForm = () => {
                 <div className="formGroup">
                     <label htmlFor="password" className="label">Password</label>
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         name="password"
                         value={formData.password}
@@ -55,8 +61,7 @@ const LoginForm = () => {
                     />
                 </div>
 
-
-
+                {error && <p style={{ color: "red" }}>{error}</p>}
 
                 <div className="formGroup">
                     <button type="submit" className="button">Login</button>

@@ -1,67 +1,64 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import './navbar.css';
-
+import React, { useState } from 'react';
+import './navbar.css'; // Ensure you have this CSS file
 
 const Navbar = () => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
-        <div className="area">
-            <nav className="main-menu">
-                <ul>
-                  <li>
-                    <Link to="/dashboard">
-                      <i className="fa fa-home fa-2x"></i>
-                      <span className="nav-text">Dashboard</span>
-                    </Link>
-                  </li>
-                  <li className="has-subnav">
-                    <Link to="/inventory">
-                      <i className="fa fa-globe fa-2x"></i>
-                      <span className="nav-text">Inventory</span>
-                    </Link>
-                  </li>
-                    <li className="">
-                        <Link to="/report">
-                            <i className="fa fa-bar-chart"></i>
-                            <span className="nav-text">Reports</span>
-                        </Link>
-                    </li>
-                    <li className="">
-                        <Link to="/suppliers">
-                            <i className="fa fa-camera-retro fa-2x"></i>
-                            <span className="nav-text">Suppliers</span>
-                        </Link>
-                    </li>
-                    <li >
-                        <Link to="/orders">
-                            <i className="fa fa-film fa-2x"></i>
-                            <span className="nav-text">orders</span>
-                        </Link>
-                    </li>
+        //<div className="container">//
+           // <section className="content">
+                <nav
+                    className={`sidebar ${isHovered ? 'hovered' : ''}`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
+                    <ul className="menu">
+                        <li className="selected">
+                            <div className="icon">
+                                <i className="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">vals</div>
+                        </li>
 
-                </ul>
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">Dashboard</div>
+                        </li>
 
-                <ul className="logout">
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-line-chart" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">Reports</div>
+                        </li>
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-list" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">Inventory</div>
+                        </li>
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-area-chart" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">suplies</div>
+                        </li>
 
-                    <li>
-                        <a href="#"></a>
-                        <i className="fa fa-sign-out fa-2x"></i>
-                        <span className="nav-text">Settings</span>
-                    </li>
-                    <li>
-                        <Link to="/Logout">
-                            <i className="fa fa-power-off fa-2x"></i>
-                            <span className="nav-text">Logout</span>
-                        </Link>
-                    </li>
+                        <li>
+                            <div className="icon">
+                                <i className="fa fa-download" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">orders</div>
+                        </li>
+                    </ul>
+                </nav>
 
-                </ul>
-            </nav>
-        </div>
+            //</section>
+        //</div>
+
     );
 };
 
 export default Navbar;
-
-
-
