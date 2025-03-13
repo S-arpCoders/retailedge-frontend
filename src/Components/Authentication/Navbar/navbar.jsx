@@ -4,6 +4,7 @@ import './navbar.css';
 
 
 const Navbar = () => {
+
     return (
         <div className="area">
             <nav className="main-menu">
