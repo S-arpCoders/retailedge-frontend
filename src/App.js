@@ -8,15 +8,10 @@ import Dashboard from './Components/Dashboard/dashboard.jsx';
 import 'font-awesome/css/font-awesome.min.css';
 //import  Navbar from '/Components/Authentication/Navbar/navbar.jsx';
 
-
-
-
-
 function App() {
     return (
         <Router>
             <div className="App">
-
 
                 {/* Set up the routes for different forms */}
                 <Routes>
