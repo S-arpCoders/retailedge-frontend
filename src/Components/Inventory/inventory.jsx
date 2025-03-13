@@ -6,83 +6,37 @@ import productService from "../../Services/Products";
 const Inventory = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [products, setProducts] = useState([]); // Initialize as an empty array
+  const [filteredProducts, setFilteredProducts] = useState([]); // Initialize as an empty array
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-
-    productService.getAllProducts().then(products => console.log(products));
-    // Mock Data for testing
-    const sampleData = [
-      {
-        id: 1,
-        name: 'Laptop',
-        overview: 'High-performance laptop with 16GB RAM and 512GB SSD',
-        purchases: 'Bought 50 units from supplier ABC',
-        adjustments: 'Reduced stock by 5 due to damage',
-        history: 'Last updated on 2024-03-10'
-      },
-      {
-        id: 2,
-        name: 'Mouse',
-        overview: 'Wireless ergonomic mouse with 3-year battery life',
-        purchases: 'Ordered 200 units from supplier XYZ',
-        adjustments: 'Increased stock by 20 due to returns',
-        history: 'Last updated on 2024-03-08'
-      },
-      {
-        id: 3,
-        name: 'Keyboard',
-        overview: 'Mechanical keyboard with RGB backlighting',
-        purchases: 'Ordered 100 units from supplier DEF',
-        adjustments: 'No recent stock adjustments',
-        history: 'Last updated on 2024-03-05'
-      }
-    ];
-
-    setProducts(sampleData);
-    setFilteredProducts(sampleData); // Initially, show all products
+    // Fetch products on component mount
+    productService.getAllProducts()
+      .then((response) => {
+        console.log('Fetched products:', response);
+        setProducts(response); // Set fetched products
+        setFilteredProducts(response); // Initially show all products
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
   }, []);
 
-  const handleSearch = (query, category) => {
+  const handleSearch = (query) => {
     // Filter products based on search query
     const lowerCaseQuery = query.toLowerCase();
     const filtered = products.filter((product) =>
-      product.name.toLowerCase().includes(lowerCaseQuery)
+      product.name.toLowerCase().includes(lowerCaseQuery) ||
+      product.overview.toLowerCase().includes(lowerCaseQuery)
     );
-
-    setFilteredProducts(filtered);
+    setFilteredProducts(filtered); // Update filtered products with the search result
   };
 
   const handleProductClick = (product) => {
-    if (selectedProduct && selectedProduct.id === product.id) {
-      setSelectedProduct(null);
-    } else {
-      setSelectedProduct(product);
-      setActiveTab('overview');
-      setIsEditing(false);
-    }
-  };
-
-  const handleEditToggle = () => {
-    setIsEditing(!isEditing);
-  };
-
-  const handleDownload = (product) => {
-    const data = `
-      Product Name: ${product.name}
-      Overview: ${product.overview}
-      Purchases: ${product.purchases}
-      Adjustments: ${product.adjustments}
-      History: ${product.history}
-    `;
-
-    const blob = new Blob([data], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${product.name}-details.txt`;
-    link.click();
+    setSelectedProduct(product);
+    setActiveTab('overview');
+    setIsEditing(false);
   };
 
   const renderTabContent = (product) => {
@@ -150,11 +104,8 @@ const Inventory = () => {
                     {renderTabContent(product)}
                   </div>
                   <div className="actions">
-                    <button className="action-button" onClick={handleEditToggle}>
+                    <button className="action-button" onClick={() => setIsEditing(!isEditing)}>
                       {isEditing ? 'Save Changes' : 'Edit'}
-                    </button>
-                    <button className="action-button" onClick={() => handleDownload(product)}>
-                      Download
                     </button>
                   </div>
                 </div>
