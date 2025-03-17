@@ -1,55 +1,50 @@
-body {
-    background: #be95c4;
-    height: 100vh;
+body{
+    background-color: #730093;
+    font-family: Arial, sans-serif;  /* Optional: Adding a font-family for consistency */
+    margin: 0;  /* Remove default margin */
+    padding: 0;  /* Remove default padding */
+    height: 100vh;  /* Ensure the body takes up the full viewport height */
     display: flex;
     justify-content: center;
-    align-items: center; /* Centers content vertically */
-    margin: 0; /* Removes any default margin */
-
+    align-items: center;  /* Vertically and horizontally center the form container */
 }
 
-/* Container for the form */
 .container {
     width: 100%;
     max-width: 500px;
     padding: 20px;
-    box-sizing: border-box;
-    display: flex;  /* Flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
+    box-sizing: border-box; /* Container background color */
+    border-radius: 8px;  /* Optional: Rounded corners for the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Optional: Adds a shadow for better visual contrast */
+    display: flex;
+    flex-direction: column;
     align-items: center;
-
-     /* Ensure both heading and form are centered horizontally */
 }
 
-/* Heading style */
 .heading {
     text-align: center;
     color: #333;
     font-size: 24px;
-    margin-bottom: 20px;  /* Space between heading and form */
+    margin-bottom: 20px;
 }
 
-/* Form layout */
 .form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Form group layout (each label and input) */
 .formGroup {
     display: flex;
     flex-direction: column;
 }
 
-/* Label styling */
 .label {
     margin-bottom: 5px;
     font-size: 14px;
     color: #333;
 }
 
-/* Input fields styling */
 .input {
     padding: 10px;
     font-size: 16px;
@@ -58,22 +53,19 @@ body {
     width: 100%;
 }
 
-/* Button styling */
 .button {
     padding: 12px;
     font-size: 16px;
     border: none;
-    background-color: #192a51;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
 }
 
-/* Hover effect for the button */
 .button:hover {
     background-color: #be95c4;
 }
-.h2{
-    color: #b90909;
 
+.h2 {
+    color: #b90909;
 }

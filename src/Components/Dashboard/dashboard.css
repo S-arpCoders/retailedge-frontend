@@ -1,0 +1,11 @@
+.dashboard {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+}
+
+.navbar-nav {
+    display: flex; /* Ensures that the navbar items align horizontally */
+    justify-content: flex-start; /* Ensures that navbar items are aligned to the left */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+}

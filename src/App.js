@@ -6,6 +6,8 @@ import LoginForm from './Components/Authentication/Login/login.jsx';
 import Landing from './Components/Landing/landing';
 import Dashboard from './Components/Dashboard/dashboard.jsx';
 import 'font-awesome/css/font-awesome.min.css';
+import Inventory from "./Components/Inventory/inventory.jsx";
+
 //import  Navbar from '/Components/Authentication/Navbar/navbar.jsx';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
                     <Route path="/business" element={<BusinessForm />} /> {/* Business form page */}
                     <Route path="/login" element={<LoginForm />} />
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/inventory" element={<Inventory />} /> {/* Inventory Page */}
+
                 </Routes>
             </div>
         </Router>

@@ -66,7 +66,7 @@ const RegistrationForm = () => {
                     <label htmlFor="number" className="label">Number</label>
                     <input
                         type="text"
-                        id="number"
+                        id="phone_no"
                         name="number"
                         value={formData.number}
                         onChange={handleChange}
