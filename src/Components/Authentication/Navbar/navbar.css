@@ -16,7 +16,7 @@
     width: 70px;
     background: #5e548e;
     transition: width 0.5s ease-in;
-    box-shadow: 2px 0 2px 2px rgba(0, 0, 0, 0.21);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -25,57 +25,51 @@
     top: 0; /* Align the sidebar to the top */
     left: 0; /* Align the sidebar to the left */
     margin: 0; /* Remove any margin */
+    padding-top: 20px; /* Add some spacing at the top */
 }
 
 /* Sidebar menu */
 .menu {
     list-style: none;
-    padding: 0;
+    padding: 10px 0;
     margin: 0;
+    width: 100%;
 }
-.menu li .text {
-    opacity: 0;
-    visibility: hidden;  /* Hide the text */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.menu li:hover .text {
-    opacity: 1;
-    color: white;
-    visibility: visible; /* Text becomes visible */
-}
-
 .menu li {
     display: flex;
     align-items: center;
-    margin: 0 0 5px 0;
-    padding: 15px 10px 15px 20px;  /* Adjusted padding for better alignment */
+    margin-bottom: 10px; /* Added more space between items */
+    padding: 15px 20px;  /* Increased padding for better alignment */
     color: #9f86c0;
-    border-left: 5px solid #000000;
+    border-left: 5px solid transparent;
     transition: all 0.3s ease;
     position: relative;
 }
 
-/* Hover and selected item */
+/* Sidebar hover effect */
 .menu li:hover {
     background: #dcd4d4;
     border-left-color: #E0E0E0;
-    color: #FFFF;
+    color: #fff;
     border-left: 0px;
 }
 
+/* Sidebar selected item */
 .menu li.selected {
     color: #5e548e;
 }
 
+/* Sidebar icons */
 .icon {
-    margin-right: 20px;
+    margin-right: 15px;
     max-width: 30px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     display: flex;
-}
-
-.icon i {
-    width: 20px;
+    justify-content: center;
+    color: #99b5db;
+    align-items: center;
+    width: 40px;
+    height: 40px;
 }
 
 /* Expanding sidebar on hover */
@@ -84,36 +78,45 @@
     cursor: pointer;
 }
 
-/* Link styling */
-.menu-item {
-    display: flex;
-    align-items: center;
-    color: inherit;  /* Ensure the link inherits the text color */
-    text-decoration: none;  /* Remove default link styling */
+/* Sidebar text (hidden by default, visible on hover) */
+.menu li .text {
+    opacity: 0;
+    visibility: hidden;  /* Hide the text */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Module container - for main content */
+.menu li:hover .text {
+    opacity: 1;
+    color: white;
+    visibility: visible; /* Text becomes visible */
+}
+
+/* Main content area */
 .module-container {
     flex-grow: 1;
-    padding: 20px;
-    margin-left: 70px; /* Add space on the left to account for the sidebar */
-    height: 100vh; /* Ensure full height of the content */
+    padding: 30px;
+    margin-left: 90px; /* More space to account for the sidebar */
+    height: 100vh;
     overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
 /* Main content sections */
 .module-gist,
 .main-view {
-    padding: 20px;
+    padding: 25px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Ensure the entire body takes full height */
 body {
     margin: 0;
-    height: 100vh;  /* Ensure full height of the page */
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Ensure body content is aligned at the top */
+    justify-content: flex-start;
+    background-color: #fafafa;
 }
 
 /* Styling for text next to the icons */
