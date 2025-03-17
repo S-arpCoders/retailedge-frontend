@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link here
 import './registration.css';
 import { authService } from '../../../Services/Authentication';
 
@@ -25,19 +25,18 @@ const RegistrationForm = () => {
         e.preventDefault();
         console.log('Form Submitted:', formData);
         try {
-            await authService.register(formData); 
-            navigate('/business'); 
+            await authService.register(formData);
+            navigate('/business');
+        } catch (error) { // Ensure the error is defined here
             console.error("Registration failed:", error);
-         }catch (e) {
-            
         }
     };
 
     return (
         <div className="container">
-            <h2 className="heading">Create an Account</h2>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
+                    <h2>Create Account</h2>
                     <label htmlFor="name" className="label">Name</label>
                     <input
                         type="text"
@@ -104,6 +103,13 @@ const RegistrationForm = () => {
 
                 <div className="formGroup">
                     <button type="submit" className="button">Next</button>
+                </div>
+
+                {/* Link to the login page */}
+                <div className="formGroup">
+                    <p>
+                        Already have an account? <Link to="/login">Login </Link>
+                    </p>
                 </div>
             </form>
         </div>

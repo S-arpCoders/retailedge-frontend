@@ -1,15 +1,24 @@
-/* Container for the form */
-.body{
-    background-color: #9f86c0;
+body {
+    background: #be95c4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers content vertically */
+    margin: 0; /* Removes any default margin */
+
 }
+
+/* Container for the form */
 .container {
     width: 100%;
     max-width: 500px;
-    margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
+    display: flex;  /* Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
 
-
-
+     /* Ensure both heading and form are centered horizontally */
 }
 
 /* Heading style */
@@ -17,7 +26,7 @@
     text-align: center;
     color: #333;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;  /* Space between heading and form */
 }
 
 /* Form layout */
@@ -44,7 +53,7 @@
 .input {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #d3d3d3;
     border-radius: 4px;
     width: 100%;
 }
@@ -54,7 +63,7 @@
     padding: 12px;
     font-size: 16px;
     border: none;
-    background-color: #007BFF;
+    background-color: #192a51;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
@@ -62,5 +71,9 @@
 
 /* Hover effect for the button */
 .button:hover {
-    background-color: #0056b3;
+    background-color: #be95c4;
+}
+.h2{
+    color: #b90909;
+
 }

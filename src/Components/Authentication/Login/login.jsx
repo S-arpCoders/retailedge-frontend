@@ -33,7 +33,7 @@ const LoginForm = () => {
 
     return (
         <div className="container_">
-            <h2 className="heading">Business Verification Form</h2>
+            <h2 className="heading">Welcome Back !</h2>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
                     <label htmlFor="username" className="label">Username</label>

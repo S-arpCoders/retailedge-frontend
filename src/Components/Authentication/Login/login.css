@@ -1,18 +1,31 @@
+
+body {
+    background: #9f86c0;
+    height: 100vh; /* Ensure full height */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    margin: 0; /* Removes any default margin */
+
+}
+
 /* Container for the form */
 .container_ {
     width: 100%;
     max-width: 500px;
-    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #c9ada7;
+    box-sizing: border-box;
+    display: flex;  /* Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Ensure both heading and form are centered horizontally */
 }
 
 /* Heading style */
 .heading {
     text-align: center;
     color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;  /* Space between heading and form */
 }
 
 /* Form layout */
@@ -32,7 +45,7 @@
 .label {
     margin-bottom: 5px;
     font-size: 14px;
-    color: #5e548e;
+    color: #333;
 }
 
 /* Input fields styling */
@@ -41,6 +54,7 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
 }
 
 /* Button styling */
@@ -48,7 +62,7 @@
     padding: 12px;
     font-size: 16px;
     border: none;
-    background-color: #495057;
+    background-color: #192a51;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
@@ -56,6 +70,8 @@
 
 /* Hover effect for the button */
 .button:hover {
-    background-color: #9f86c0;
+    background-color: #be95c4;
 }
-
+h2{
+    color: #930000;
+}
