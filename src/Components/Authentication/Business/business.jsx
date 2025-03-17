@@ -22,8 +22,7 @@ const BusinessForm = () => {
         e.preventDefault();
         console.log('Form Submitted:', formData);
 
-        // After submitting the form, navigate to the business form
-        navigate('/login'); // Navigate to the business form page
+        navigate('/login');
     };
 
     return (

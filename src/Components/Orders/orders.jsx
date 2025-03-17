@@ -11,7 +11,7 @@ const Order = () => {
     // Fetch data from the database
     const fetchOrders = async () => {
       try {
-        const response = await fetch('/api/v1/orders'); // Replace with your API endpoint
+        const response = await fetch('/api/v1/orders');
         const data = await response.json();
         setOrders(data);
       } catch (error) {

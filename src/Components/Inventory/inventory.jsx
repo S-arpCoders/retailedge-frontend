@@ -6,17 +6,16 @@ import productService from "../../Services/Products";
 const Inventory = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
-  const [products, setProducts] = useState([]); // Initialize as an empty array
-  const [filteredProducts, setFilteredProducts] = useState([]); // Initialize as an empty array
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    // Fetch products on component mount
     productService.getAllProducts()
       .then((response) => {
         console.log('Fetched products:', response);
-        setProducts(response); // Set fetched products
-        setFilteredProducts(response); // Initially show all products
+        setProducts(response);
+        setFilteredProducts(response);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -24,13 +23,12 @@ const Inventory = () => {
   }, []);
 
   const handleSearch = (query) => {
-    // Filter products based on search query
     const lowerCaseQuery = query.toLowerCase();
     const filtered = products.filter((product) =>
       product.name.toLowerCase().includes(lowerCaseQuery) ||
       product.overview.toLowerCase().includes(lowerCaseQuery)
     );
-    setFilteredProducts(filtered); // Update filtered products with the search result
+    setFilteredProducts(filtered);
   };
 
   const handleProductClick = (product) => {
