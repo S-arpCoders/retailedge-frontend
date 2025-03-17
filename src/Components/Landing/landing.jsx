@@ -13,11 +13,9 @@ const Landing = () => {
         <div className="body-container">
             {/* Top Section - Contains the hamburger menu */}
             <div className="top-section">
-                {/* Hamburger Menu */}
-                <div className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                    <div className="hamburger-icon"></div>
-                    <div className="hamburger-icon"></div>
-                    <div className="hamburger-icon"></div>
+                {/*logo  */}
+                <div className="logo-container">
+                    <img src="../../Logo.png" width="500" height="150" alt="RetailEdge Logo" className="logo" />
                 </div>
 
                 {/* Bootstrap navbar links (only shown when the hamburger menu is open) */}
@@ -51,7 +49,6 @@ const Landing = () => {
                             <p>
                                 This Management Inventory System Provides real-time updates on stock levels, automatically update inventory after sales transactions,
                                 and offer alerts for low stock and expiring items. This solution will improve operational efficiency and reduce costly errors caused by separate systems.
-
 
                             </p>
                             <div className="text-center">
