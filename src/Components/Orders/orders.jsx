@@ -8,7 +8,6 @@ const Order = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    // Fetch data from the database
     const fetchOrders = async () => {
       try {
         const response = await fetch('/api/v1/orders');
