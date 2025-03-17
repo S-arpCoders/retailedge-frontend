@@ -53,5 +53,4 @@ export const salesService = {
         }
     },
 
-    // ... (Add other sales-related service functions as needed)
 };
