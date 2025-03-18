@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/api/v1/inventory/products"; // Replace with actual API URL
+const BASE_URL = "http://localhost:8080/api/internal/inventory/products"; // Replace with actual API URL
 
 const productService = {
 
