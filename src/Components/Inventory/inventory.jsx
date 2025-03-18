@@ -3,16 +3,12 @@ import SearchBar from '../SearchBar/SearchBar.jsx';
 import './inventoryStyle.css';
 import productService from "../../Services/Products";
 
-const ITEMS_PER_PAGE = 10;
-
 const Inventory = () => {
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const [activeTab, setActiveTab] = useState('overview');
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [isEditing, setIsEditing] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
     const [filterOption, setFilterOption] = useState('');
+    const [newProduct, setNewProduct] = useState({ name: '', description: '', price: '', stockQuantity: '', barcode: '' });
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         productService.getAllProducts()
@@ -32,13 +28,6 @@ const Inventory = () => {
             product.description.toLowerCase().includes(lowerCaseQuery)
         );
         setFilteredProducts(filtered);
-        setCurrentPage(1); // Reset to first page after search
-    };
-
-    const handleProductClick = (product) => {
-        setSelectedProduct(product);
-        setActiveTab('overview');
-        setIsEditing(false);
     };
 
     const handleFilter = (event) => {
@@ -49,72 +38,66 @@ const Inventory = () => {
         } else {
             setFilteredProducts(products);
         }
-        setCurrentPage(1); // Reset to first page after filtering
     };
 
-    // Pagination logic
-    const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const paginatedProducts = filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    const handleNewProductChange = (e) => {
+        setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
+    };
 
-    const categories = [
-        { id: 9, name: 'Cameras & Photography' },
-        { id: 1, name: 'Clement' },
-        { id: 4, name: 'Computer Accessories' },
-        { id: 10, name: 'Drones & Action Cameras' },
-        { id: 6, name: 'Gaming Consoles' },
-        { id: 12, name: 'Graphics Cards' },
-        { id: 2, name: 'Headphones & Audio' },
-        { id: 3, name: 'Laptops & Computers' },
-        { id: 15, name: 'Networking & Routers' },
-        { id: 11, name: 'Power Banks & Charging' },
-        { id: 14, name: 'Printers & Scanners' },
-        { id: 7, name: 'Smart Home Devices' },
-        { id: 13, name: 'Storage Devices' },
-        { id: 5, name: 'TVs & Monitors' },
-        { id: 8, name: 'Wearables & Smartwatches' }
-    ];
+    const handleAddProduct = async () => {
+        try {
+            const response = await productService.addProduct(newProduct);
+            setProducts([...products, response]);
+            setFilteredProducts([...filteredProducts, response]);
+            setNewProduct({ name: '', description: '', price: '', stockQuantity: '', barcode: '' });
+            setShowForm(false);
+        } catch (error) {
+            console.error("Error adding product:", error);
+        }
+    };
 
     return (
-        <div className="content">
-            <h2>Inventory List</h2>
+        <div className="inventory-container">
+            <h2 className="inventory-title">Inventory</h2>
             <SearchBar onSearch={handleSearch} />
 
             <div className="filter-sort">
                 <select onChange={handleFilter} value={filterOption}>
                     <option value="">Filter by Category</option>
-                    {categories.map(category => (
-                        <option key={category.id} value={category.id}>{category.name}</option>
-                    ))}
+                    <option value="1">Laptops</option>
+                    <option value="2">Headphones</option>
+                    <option value="3">Monitors</option>
                 </select>
             </div>
 
-            <div className="product-list">
-                {paginatedProducts.map((product) => (
-                    <div key={product.id} className="product-item" onClick={() => handleProductClick(product)}>
+            <button className="toggle-form-button" onClick={() => setShowForm(!showForm)}>
+                {showForm ? 'Hide Form' : 'Add New Product'}
+            </button>
+
+            {showForm && (
+                <div className="new-product-form">
+                    <h3>Add New Product</h3>
+                    <input type="text" name="name" placeholder="Product Name" value={newProduct.name} onChange={handleNewProductChange} />
+                    <input type="text" name="description" placeholder="Description" value={newProduct.description} onChange={handleNewProductChange} />
+                    <input type="number" name="price" placeholder="Price" value={newProduct.price} onChange={handleNewProductChange} />
+                    <input type="number" name="stockQuantity" placeholder="Stock Quantity" value={newProduct.stockQuantity} onChange={handleNewProductChange} />
+                    <input type="text" name="barcode" placeholder="Barcode" value={newProduct.barcode} onChange={handleNewProductChange} />
+                    <button className="add-product-button" onClick={handleAddProduct}>Add Product</button>
+                </div>
+            )}
+
+            <div className="inventory-grid">
+                {filteredProducts.map((product) => (
+                    <div key={product.productId} className="product-card">
                         <h3>{product.name}</h3>
+                        <p>{product.description}</p>
+                        <span className="price">R{product.price.toFixed(2)}</span>
+                        <span className="stock">Stock: {product.stockQuantity}</span>
+                        <span className="barcode">Barcode: {product.barcode}</span>
+                        <button className="add-button">Add Item</button>
                     </div>
                 ))}
             </div>
-
-            {/* Pagination controls */}
-            {totalPages > 1 && (
-                <div className="pagination">
-                    <button
-                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                        disabled={currentPage === 1}
-                    >
-                        Previous
-                    </button>
-                    <span> Page {currentPage} of {totalPages} </span>
-                    <button
-                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                        disabled={currentPage === totalPages}
-                    >
-                        Next
-                    </button>
-                </div>
-            )}
         </div>
     );
 };
