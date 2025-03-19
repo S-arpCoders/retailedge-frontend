@@ -1,129 +1,92 @@
-/* Ensure the entire layout takes up full height and aligns to the top-left */
-.container {
-    display: flex;
-    flex-direction: row;  /* Align content horizontally */
-    height: 100vh;  /* Full viewport height */
-    width: 100%; /* Ensure full width */
-    justify-content: flex-start;  /* Align the content to the left */
-    align-items: stretch;  /* Ensure the container takes full height */
-    margin: 0; /* Remove any default margin */
-    padding: 0; /* Remove any default padding */
-}
-
-/* Sidebar */
+/* Sidebar Styling */
 .sidebar {
-    user-select: none;
-    width: 70px;
-    background: #5e548e;
-    transition: width 0.5s ease-in;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100vh;
+    background: #1d3748;
+    color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    height: 100vh;  /* Full height */
-    position: fixed;  /* Fixed position to the left of the screen */
-    top: 0; /* Align the sidebar to the top */
-    left: 0; /* Align the sidebar to the left */
-    margin: 0; /* Remove any margin */
-    padding-top: 20px; /* Add some spacing at the top */
+    flex-direction: column;
+    transition: left 0.3s ease-in-out;
 }
 
-/* Sidebar menu */
+.sidebar.open {
+    left: 0; /* Slide in */
+}
+
+/* Menu Items */
 .menu {
     list-style: none;
-    padding: 10px 0;
+    padding: 20px;
     margin: 0;
-    width: 100%;
 }
+
 .menu li {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Added more space between items */
-    padding: 15px 20px;  /* Increased padding for better alignment */
-    color: #9f86c0;
-    border-left: 5px solid transparent;
-    transition: all 0.3s ease;
-    position: relative;
+    padding: 15px;
+    transition: background 0.3s ease-in-out;
 }
 
-/* Sidebar hover effect */
 .menu li:hover {
-    background: #dcd4d4;
-    border-left-color: #E0E0E0;
-    color: #fff;
-    border-left: 0px;
-}
-
-/* Sidebar selected item */
-.menu li.selected {
-    color: #5e548e;
-}
-
-/* Sidebar icons */
-.icon {
-    margin-right: 15px;
-    max-width: 30px;
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;
-    color: #99b5db;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-}
-
-/* Expanding sidebar on hover */
-.sidebar.hovered {
-    width: 150px;  /* Expanded width */
+    background: #0e2a40;
     cursor: pointer;
 }
 
-/* Sidebar text (hidden by default, visible on hover) */
-.menu li .text {
-    opacity: 0;
-    visibility: hidden;  /* Hide the text */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+/* Icons */
+.icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
 }
 
-.menu li:hover .text {
+/* Hide text when sidebar is closed */
+.text {
     opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar:not(.open) .text {
+    opacity: 0;
+    width: 0;
+}
+
+/* Logout button */
+.logout {
+    color: #f685ba;
+    font-weight: bold;
+}
+
+.logout:hover {
+    color: #ff4d6d;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    background: #1d3748;
     color: white;
-    visibility: visible; /* Text becomes visible */
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
-/* Main content area */
-.module-container {
-    flex-grow: 1;
-    padding: 30px;
-    margin-left: 90px; /* More space to account for the sidebar */
-    height: 100vh;
-    overflow-y: auto; /* Allow scrolling if content overflows */
+.menu-toggle:hover {
+    background: #0e2a40;
 }
 
-/* Main content sections */
-.module-gist,
-.main-view {
-    padding: 25px;
-    background: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
 
-/* Ensure the entire body takes full height */
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #fafafa;
-}
-
-/* Styling for text next to the icons */
-.nav-text {
-    position: relative;
-    display: table-cell;
-    vertical-align: middle;
-    width: 190px;
-    font-family: 'Titillium Web', sans-serif;
+    .menu-toggle {
+        right: -35px;
+    }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
-import Layout from '../Layout';
+import Navbar from '../Authentication/Navbar/navbar';
 import Reports from '../../Services/Reports';
 import './Report.css';
 
@@ -33,19 +33,22 @@ const Report = () => {
     if (error) return <div className="error">{error}</div>;
 
     return (
-        <Layout>
+        <div className="report-layout">
+            <Navbar />
             <div className="report-container">
                 <h2 className="report-title">Business Insights Dashboard</h2>
-                <div className="chart-section">
-                    <h3 className="chart-label">Sales Data</h3>
-                    <Bar data={formatSalesData(salesData)} options={horizontalChartOptions} height={300} />
-                </div>
-                <div className="chart-section">
-                    <h3 className="chart-label">Inventory Levels</h3>
-                    <Bar data={formatInventoryData(inventoryData)} options={chartOptions} height={300} />
+                <div className="chart-grid">
+                    <div className="chart-section">
+                        <h3 className="chart-label">Sales Data</h3>
+                        <Bar data={formatSalesData(salesData)} options={horizontalChartOptions} height={300} />
+                    </div>
+                    <div className="chart-section">
+                        <h3 className="chart-label">Inventory Levels</h3>
+                        <Bar data={formatInventoryData(inventoryData)} options={chartOptions} height={300} />
+                    </div>
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 };
 

@@ -6,7 +6,8 @@
   justify-content: center;
   padding: 20px;
   background: linear-gradient(to bottom, #aaa1c8, #967aa1);
-  min-height: 50vh;
+  min-height: 100vh;
+  max-height: 100vh;
 }
 
 .inventory-title {
@@ -23,9 +24,10 @@
 }
 span.barcode{
   color: #dcd4d4;
-  span.price{
-    color: #dcd4d4;
-  }
+
+}
+span.price{
+  color: #dcd4d4;
 }
 .filter-sort select {
   padding: 10px;
@@ -38,11 +40,13 @@ span.barcode{
 }
 
 .inventory-grid {
+  max-height: 50vh;
+  overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  width: 90%;
-  max-width: 1200px;
+  width: 85%;
+  max-width: 100vw;
 }
 
 .product-card {
@@ -158,7 +162,4 @@ button.search-button:hover {
 }
 div.search-bar{
   background-color: #192a51;
-}
-span.price{
-  background-color: #f685ba;
 }

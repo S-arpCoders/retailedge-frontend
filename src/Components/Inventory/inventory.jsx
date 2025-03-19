@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar.jsx';
+import Navbar from '../Authentication/Navbar/navbar.jsx';
 import './inventoryStyle.css';
 import productService from "../../Services/Products";
 
@@ -13,7 +14,6 @@ const Inventory = () => {
     useEffect(() => {
         productService.getAllProducts()
             .then((response) => {
-                console.log(response);
                 setProducts(response);
                 setFilteredProducts(response);
             })
@@ -46,6 +46,11 @@ const Inventory = () => {
     };
 
     const handleAddProduct = async () => {
+        if (!newProduct.name || !newProduct.price || !newProduct.stockQuantity) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
         try {
             const response = await productService.addProduct(newProduct);
             setProducts([...products, response]);
@@ -59,6 +64,7 @@ const Inventory = () => {
 
     return (
         <div className="inventory-container">
+            <Navbar />
             <h2 className="inventory-title">Inventory</h2>
             <SearchBar onSearch={handleSearch} />
 
@@ -78,10 +84,10 @@ const Inventory = () => {
             {showForm && (
                 <div className="new-product-form">
                     <h3>Add New Product</h3>
-                    <input type="text" name="name" placeholder="Product Name" value={newProduct.name} onChange={handleNewProductChange} />
+                    <input type="text" name="name" placeholder="Product Name" value={newProduct.name} onChange={handleNewProductChange} required />
                     <input type="text" name="description" placeholder="Description" value={newProduct.description} onChange={handleNewProductChange} />
-                    <input type="number" name="price" placeholder="Price" value={newProduct.price} onChange={handleNewProductChange} />
-                    <input type="number" name="stockQuantity" placeholder="Stock Quantity" value={newProduct.stockQuantity} onChange={handleNewProductChange} />
+                    <input type="number" name="price" placeholder="Price" value={newProduct.price} onChange={handleNewProductChange} required />
+                    <input type="number" name="stockQuantity" placeholder="Stock Quantity" value={newProduct.stockQuantity} onChange={handleNewProductChange} required />
                     <input type="text" name="barcode" placeholder="Barcode" value={newProduct.barcode} onChange={handleNewProductChange} />
                     <button className="add-product-button" onClick={handleAddProduct}>Add Product</button>
                 </div>
@@ -95,7 +101,6 @@ const Inventory = () => {
                         <span className="price">R{product.price.toFixed(2)}</span>
                         <span className="stock">Stock: {product.stockQuantity}</span>
                         <span className="barcode">Barcode: {product.barcode}</span>
-                        <button className="add-button">Add Item</button>
                     </div>
                 ))}
             </div>
