@@ -16,7 +16,7 @@
 }
 
 .report-container {
-    background-color: #ffffff; /* White background for the report section */
+    background-color: #d3d3d3; /* White background for the report section */
     padding: 20px;
     border-radius: 8px;
 }
@@ -38,17 +38,18 @@
 }
 
 .inventory-summary-card {
-    background: linear-gradient(to bottom, #fff, #ffe4e1);/* Light gray background for inventory summary */
+    background: linear-gradient(to bottom, #dcd4d4, #e0b1cb);/* Light gray background for inventory summary */
 }
 
 .inventory-summary {
     padding: 20px;
+    color: #d3d3d3;
 }
 
 .summary-title {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #333; /* Dark color for the title */
+    color: #ffffff; /* Dark color for the title */
 }
 
 .summary-item {
@@ -86,7 +87,7 @@
 .report-card {
     width: 60%;
     min-width: 400px;
-    background: white;
+    background: linear-gradient(to bottom, #be95c4, #f685ba);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
@@ -112,7 +113,7 @@
 .chart-section {
     width: 100%;
     max-width: 350px; /* Reduce width */
-    background: #fff;
+    background: #050505;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
@@ -152,4 +153,3 @@
         width: 90%;
     }
 }
-

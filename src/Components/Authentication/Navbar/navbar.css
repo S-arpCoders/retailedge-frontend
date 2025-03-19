@@ -5,7 +5,7 @@
     left: -250px; /* Hidden by default */
     width: 250px;
     height: 100vh;
-    background: #1d3748;
+    background: #192a51;
     color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -89,4 +89,11 @@
     .menu-toggle {
         right: -35px;
     }
+}
+span.text{
+    color: #d3d3d3;
+    font-weight: bold;
+}
+svg.icon {
+    color: #f685ba;
 }

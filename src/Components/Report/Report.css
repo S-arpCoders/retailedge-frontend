@@ -19,6 +19,7 @@ body{
 /* Report content layout */
 .report-container {
   flex-grow: 1;
+  background: linear-gradient(to bottom, #192a51, #5e548e);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +31,7 @@ body{
 .report-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #192a51;
+  color: #be95c4;
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;

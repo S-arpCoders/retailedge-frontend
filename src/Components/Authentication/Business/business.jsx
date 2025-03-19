@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './business.css';
 
 const BusinessForm = () => {
@@ -72,6 +72,11 @@ const BusinessForm = () => {
 
                 <div className="formGroup">
                     <button type="submit" className="button">Register</button>
+                </div>
+                <div className="formGroup">
+                    <p>
+                        Go Back to Registration Form <Link to="/registration">Register </Link>
+                    </p>
                 </div>
             </form>
         </div>
