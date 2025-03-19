@@ -1,39 +1,33 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import RegistrationForm from './Components/Authentication/Registration/registration.jsx';
-import BusinessForm from './Components/Authentication/Business/business.jsx';
-import LoginForm from './Components/Authentication/Login/login.jsx';
-import Landing from './Components/Landing/landing';
-import Dashboard from './Components/Dashboard/dashboard.jsx';
-import 'font-awesome/css/font-awesome.min.css';
-import Inventory from "./Components/Inventory/inventory.jsx";
-import Layout from "./Components/Layout";
-import Report from "./Components/Report/report";
-
-//import  Navbar from '/Components/Authentication/Navbar/navbar.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginForm from './Components/Authentication/Login/login';
+import RegistrationForm from './Components/Authentication/Registration/registration';
+import BusinessForm from './Components/Authentication/Business/business';
+import Dashboard from './Components/Dashboard/dashboard';
+import Inventory from './Components/Inventory/inventory';
+import Report from './Components/Report/report';
+import PrivateRoute from "./Components/Authentication/PrivateRoute";
+import Landing from "./Components/Landing/landing";
 
 function App() {
     return (
-
         <Router>
-            <div className="App">
-                {/* Set up the routes for different forms */}
+            <Routes>
+                <Route path="/login" element={<LoginForm />} />
+                <Route path="/registration" element={<RegistrationForm />} />
+                <Route path="/business" element={<BusinessForm />} />
 
-                <Routes>
-                    <Route path="/" element={<Landing />} /> {/* Landing page */}
-
-                    <Route path="/registration" element={<RegistrationForm />} /> {/* Registration form page */}
-                    <Route path="/business" element={<BusinessForm />} /> {/* Business form page */}
-                    <Route path="/login" element={<LoginForm />} />
+                {/* Protected Routes */}
+                <Route element={<PrivateRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/inventory" element={<Inventory />} />
                     <Route path="/reports" element={<Report />} />
-                    <Route path="/inventory" element={<Inventory />} /> {/* Inventory Page */}
+                </Route>
 
-                </Routes>
-            </div>
-
+                {/* Default Route */}
+                <Route path="*" element={<Landing />} />
+            </Routes>
         </Router>
-
     );
 }
 
