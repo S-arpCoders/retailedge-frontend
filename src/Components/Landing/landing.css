@@ -87,26 +87,26 @@ body {
     align-items: center;         /* Center the logo vertically */
     padding-left: 0px;           /* Ensure no left padding (to stick the logo to the left edge) */
     position: absolute;          /* Position the logo absolutely relative to its parent container */
-    left: 20px;                  /* Add some space from the left edge */
+    left: 100px;                  /* Add some space from the left edge */
 }
 
 /* Styling for the Logo */
 .logo {
-    height: 50px;                /* Maintain the aspect ratio of the logo */
-    width: 90px;                 /* Make the logo slimmer */
-    border-radius: 10px;         /* Apply rounded corners */
+    height: 70px;                /* Maintain the aspect ratio of the logo */
+    width: 200px;                 /* Make the logo slimmer */
+    border-radius: 6px;         /* Apply rounded corners */
 }
 
 /* Optional: Add a hover effect if desired */
 .logo:hover {
-    transform: scale(1.05);      /* Slight zoom effect on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
     transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
-    color: #192a51;
+
 }
 
 
 
-/*END*/
+    /*END*/
 
 /*Nav buttons*/
 

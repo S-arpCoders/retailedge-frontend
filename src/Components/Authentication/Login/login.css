@@ -8,6 +8,11 @@ body {
     margin: 0; /* Removes any default margin */
 
 }
+.logo {
+    width: 100px;  /* Set the width for the logo */
+    height: auto;
+    margin-bottom: 20px;  /* Space between the logo and the heading */
+}
 
 /* Container for the form */
 .container_ {
