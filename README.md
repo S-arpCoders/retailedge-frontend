@@ -3,6 +3,12 @@
 
 RetailEdge is a unified Inventory Management and POS System designed for small business owners. This React-based frontend communicates with the backend to provide real-time updates on stock levels, sales tracking, low-stock alerts, and more.  
 
+
+
+https://github.com/user-attachments/assets/87be0612-68bb-4927-91d5-cb355b8348a0
+
+
+
 ## 🚀 Features  
 
 - User authentication (Login & Registration)  
