@@ -1,47 +1,361 @@
-/* landing.css */
-.landing-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+
+
+html:not(.no-js) [data-aos^=fade][data-aos^=fade].aos-animate {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
 }
 
-.landing-box {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
+[data-aos][data-aos][data-aos-delay="100"].aos-animate,
+body[data-aos-delay="100"] [data-aos].aos-animate {
+    transition-delay: .1s;
 }
 
-.landing-heading {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
+    opacity: 0;
+    transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    transition-property: opacity, transform, -webkit-transform;
 }
 
-.button-container {
+
+
+body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Body Container */
+.body-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    height: 100vh; /* Full screen height */
 }
 
-.landing-button {
-    background-color: #b79b9b;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    text-align: center;
-    display: block;
+/* Top Section Styling */
+.top-section {
+    height: 160px;
+    background-color: #dcd4d4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 11000px;
+    margin: 0 auto;
+}
+
+/* Bottom Section Styling */
+.bottom-section {
+    flex: 1; /* Takes the remaining space */
+    background-color: #d5c6e0; /* Optional background color */
+    padding: 20px; /* Padding for content */
+    text-align: center; /* Center the content */
+}
+
+.get-started-btn{
+    background-color: #192a51; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Button padding */
+    font-size: 1rem; /* Font size */
+    border-radius: 11px; /* Rounded corners */
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease;
 }
+.get-started-btn:hover{
+    background-color: #5e548e;
+    color: white;
+}
 
-.landing-button:hover {
-    background-color: #616870;
+/* Logo Container */
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start; /* Align the logo to the far left */
+    align-items: center;         /* Center the logo vertically */
+    padding-left: 0px;           /* Ensure no left padding (to stick the logo to the left edge) */
+    position: absolute;          /* Position the logo absolutely relative to its parent container */
+    left: 100px;                  /* Add some space from the left edge */
+}
+
+/* Styling for the Logo */
+.logo {
+    height: 70px;                /* Maintain the aspect ratio of the logo */
+    width: 200px;                 /* Make the logo slimmer */
+    border-radius: 6px;         /* Apply rounded corners */
+}
+
+/* Optional: Add a hover effect if desired */
+.logo:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
+
+}
+
+
+
+    /*END*/
+
+/*Nav buttons*/
+
+
+/* General Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Ensure no border is visible initially */
+    outline: none;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: translateY(-3px); /* Slight hover effect to lift the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover/focus */
+}
+
+/* Primary Button (Login) */
+.btn-primary {
+
+    color: #fff;
+    border: 2px solid #b90909;
+}
+
+.btn-primary:hover {
+    text-decoration-color: #be95c4;
+
+}
+
+/* Secondary Button (Register) */
+.btn-secondary {
+
+    color: #fff;
+
+}
+
+.btn-secondary:hover {
+    background-color: #6c757d;
+
+}
+
+/* Info Button (About) */
+.btn-info {
+
+    color: #fff;
+
+}
+.btn-info:hover {
+
+
+}
+
+
+.menu-links a {
+    display: inline-block; /* Make the links inline-block for better control */
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #192a51; /* Blue text color for the links */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover and Focus Effects */
+.menu-links a:hover,
+.menu-links a:focus {
+    color: #392f5a; /* Darker blue on hover */
+    transform: translateY(-3px); /* Slight hover effect */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Flexbox container to align links side by side */
+.menu-links {
+    display: flex; /* Use flexbox to align items */
+    justify-content: center; /* Center links horizontally */
+    gap: 20px; /* Space between links */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Styling for the Menu Links */
+.menu-links ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Remove the default bullet points */
+}
+
+.menu-links li {
+    margin-bottom: 0; /* Remove space between individual menu items */
+}
+
+
+/* Mobile Responsiveness: Adjust link layout */
+@media (max-width: 768px) {
+    .menu-links {
+        flex-direction: column; /* Stack links vertically on mobile */
+        align-items: center; /* Center links in column */
+    }
+
+    .menu-links li {
+        margin-bottom: 10px; /* Add space between items */
+    }
+}
+
+/* Other general styles (the rest of your CSS remains unchanged) */
+
+
+/*ends*/
+
+/* Welcome Section Styling */
+.welcome {
+    text-align: center;
+    padding: 40px 0;
+    /* Light background color */
+    margin-bottom: 40px; /* Space between the welcome section and content boxes */
+}
+
+.welcome h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #192a51;
+    margin-bottom: 1rem;
+}
+
+.welcome p {
+    font-size: 1.1rem;
+    color: #192a51;
+}
+
+/* Content Boxes Section Styling */
+.content {
+    margin-top: 40px;
+}
+
+.g-4,
+.gy-4 {
+    --bs-gutter-y: 1.5rem;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.col-lg-4,
+.col-lg-8 {
+    padding: 0 1rem;
+}
+
+/* Styling for Boxes */
+.why-box,
+.icon-box {
+    background-color: #967aa1;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.why-box h3,
+.icon-box h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.why-box p,
+.icon-box p {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.why-box a,
+.icon-box a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #192a51;
+    font-size: 1.0rem;
+    font-family: "Arial Black";
+}
+
+.why-box a:hover,
+    /*.icon-box a:hover {
+        color: #dcd4d4;
+    }
+    */
+.more-btn {
+    background-color: #192a51; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Button padding */
+    font-size: 1rem; /* Font size */
+    border-radius: 11px; /* Rounded corners */
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect for the button */
+.more-btn:hover {
+    background-color: #5e548e; /* Darker shade on hover */
+}
+
+/* Icon styling */
+.more-btn i {
+    margin-left: 8px; /* Space between text and icon */
+}
+
+
+
+
+/* Icon Boxes */
+.icon-box {
+    text-align: center;
+}
+
+.icon-box i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #192a51;
+}
+
+/* Add hover effect */
+.icon-box:hover,
+.why-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .col-lg-4, .col-lg-8 {
+        flex: 0 0 100%;
+    }
 }

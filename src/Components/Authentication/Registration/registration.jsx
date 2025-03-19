@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link here
 import './registration.css';
+import { authService } from '../../../Services/Authentication';
+
 
 
 const RegistrationForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         surname: '',
-        username: '',
+        number: '',
         password: '',
         email: '',
     });
-    const navigate = useNavigate(); // Initialize the navigate function
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,19 +23,25 @@ const RegistrationForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Form Submitted:', formData);
-
-        // After submitting the form, navigate to the business form
-        navigate('/business'); // Navigate to the business form page
+        try {
+            await authService.register(formData);
+            navigate('/business');
+        } catch (error) { // Ensure the error is defined here
+            console.error("Registration failed:", error);
+        }
     };
-
 
     return (
         <div className="container">
-            <h2 className="heading">Registration Form</h2>
+            {/* Logo on top */}
+
+
+
             <form onSubmit={handleSubmit} className="form">
+                <h2>Create Account</h2>
                 <div className="formGroup">
                     <label htmlFor="name" className="label">Name</label>
                     <input
@@ -61,12 +69,12 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className="formGroup">
-                    <label htmlFor="username" className="label">Username</label>
+                    <label htmlFor="number" className="label">Number</label>
                     <input
                         type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
+                        id="phone_no"
+                        name="number"
+                        value={formData.number}
                         onChange={handleChange}
                         className="input"
                         required
@@ -102,9 +110,17 @@ const RegistrationForm = () => {
                 <div className="formGroup">
                     <button type="submit" className="button">Next</button>
                 </div>
+
+                {/* Link to the login page */}
+                <div className="formGroup">
+                    <p>
+                        Already have an account? <Link to="/login">Login </Link>
+                    </p>
+                </div>
             </form>
         </div>
     );
 };
 
 export default RegistrationForm;
+

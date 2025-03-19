@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import './login.css';
+import { useNavigate } from "react-router-dom";
+import { authService } from "../../../Services/Authentication";
+
+
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
-        name: '',
-        businessNumber: '',
-        email: '',
+        username: '',
+        password: '',
     });
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,14 +21,23 @@ const LoginForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form Submitted:', formData);
+        setError(null);
+
+        try {
+            await authService.login(formData.username, formData.password);
+            navigate('/dashboard');
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (
         <div className="container_">
-            <h2 className="heading">Business Verification Form</h2>
+
+
+            <h2 className="heading">Welcome Back!</h2>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
                     <label htmlFor="username" className="label">Username</label>
@@ -41,7 +55,7 @@ const LoginForm = () => {
                 <div className="formGroup">
                     <label htmlFor="password" className="label">Password</label>
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         name="password"
                         value={formData.password}
@@ -51,8 +65,7 @@ const LoginForm = () => {
                     />
                 </div>
 
-
-
+                {error && <p style={{ color: "red" }}>{error}</p>}
 
                 <div className="formGroup">
                     <button type="submit" className="button">Login</button>

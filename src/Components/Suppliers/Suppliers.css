@@ -1,0 +1,33 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.table {
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table th {
+  background-color: #f9f9f9;
+}
+
+.table td {
+  background-color: white;
+}

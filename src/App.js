@@ -1,24 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import RegistrationForm from './Components/Authentication/Registration/registration.jsx';
-import BusinessForm from './Components/Authentication/Business/business.jsx';
-import LoginForm from './Components/Authentication/Login/login.jsx';
-import Landing from './Components/Landing/landing';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginForm from './Components/Authentication/Login/login';
+import RegistrationForm from './Components/Authentication/Registration/registration';
+import BusinessForm from './Components/Authentication/Business/business';
+import Dashboard from './Components/Dashboard/dashboard';
+import Inventory from './Components/Inventory/inventory';
+import Report from './Components/Report/report';
+import PrivateRoute from "./Components/Authentication/PrivateRoute";
+import Landing from "./Components/Landing/landing";
 
 function App() {
     return (
         <Router>
-            <div className="App">
-                <h1>SCAN OR GIVE ME YOUR MONEYYYYYY</h1>
+            <Routes>
+                <Route path="/login" element={<LoginForm />} />
+                <Route path="/registration" element={<RegistrationForm />} />
+                <Route path="/business" element={<BusinessForm />} />
 
-                {/* Set up the routes for different forms */}
-                <Routes>
-                    <Route path="/" element={<Landing />} /> {/* Landing page */}
-                    <Route path="/registration" element={<RegistrationForm />} /> {/* Registration form page */}
-                    <Route path="/business" element={<BusinessForm />} /> {/* Business form page */}
-                    <Route path="/login" element={<LoginForm />} />
-                </Routes>
-            </div>
+                {/* Protected Routes */}
+                <Route element={<PrivateRoute />}>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/inventory" element={<Inventory />} />
+                    <Route path="/reports" element={<Report />} />
+                </Route>
+
+                {/* Default Route */}
+                <Route path="*" element={<Landing />} />
+            </Routes>
         </Router>
     );
 }

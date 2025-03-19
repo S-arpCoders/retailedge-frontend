@@ -1,0 +1,155 @@
+/* General Dashboard Styling */
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 200px; /* Adjust gap as needed */
+}
+
+/*Inventory*/
+
+.report-card, .inventory-summary-card {
+    width: 48%; /* Adjust size as needed */
+    background-color: hotpink; /* Light gray background to match the report */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: lightpink;
+}
+
+.report-container {
+    background-color: #d3d3d3; /* White background for the report section */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.report-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Dark color for the title */
+}
+
+.chart-section {
+    margin-bottom: 20px;
+}
+
+.chart-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Dark color for labels */
+}
+
+.inventory-summary-card {
+    background: linear-gradient(to bottom, #dcd4d4, #e0b1cb);/* Light gray background for inventory summary */
+}
+
+.inventory-summary {
+    padding: 20px;
+    color: #d3d3d3;
+}
+
+.summary-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff; /* Dark color for the title */
+}
+
+.summary-item {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555; /* Slightly lighter color for summary items */
+}
+
+.summary-item strong {
+    font-weight: bold;
+}
+
+.loading, .error {
+    font-size: 18px;
+    color: #888;
+}
+
+.error {
+    color: red;
+}
+
+
+/* Layout for Report and Charts */
+.dashboard-content {
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px; /* Limit max width */
+}
+
+/* Styling for Report Card */
+.report-card {
+    width: 60%;
+    min-width: 400px;
+    background: linear-gradient(to bottom, #be95c4, #f685ba);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for better interactivity */
+.report-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Charts Container (Aligned Right) */
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align charts to the right */
+    gap: 15px;
+    width: 40%; /* Adjust width for alignment */
+    min-width: 300px;
+}
+
+/* Chart Styling */
+.chart-section {
+    width: 100%;
+    max-width: 350px; /* Reduce width */
+    background: #050505;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.chart-section canvas {
+    height: 120px !important; /* Reduce chart height */
+}
+
+/* Ensure responsiveness */
+@media (max-width: 1024px) {
+    .dashboard-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .report-card {
+        width: 90%;
+    }
+
+    .charts-container {
+        width: 90%;
+        align-items: center; /* Center charts on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .report-card,
+    .charts-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,99 @@
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100vh;
+    background: #192a51;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar.open {
+    left: 0; /* Slide in */
+}
+
+/* Menu Items */
+.menu {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.menu li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: background 0.3s ease-in-out;
+}
+
+.menu li:hover {
+    background: #0e2a40;
+    cursor: pointer;
+}
+
+/* Icons */
+.icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* Hide text when sidebar is closed */
+.text {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar:not(.open) .text {
+    opacity: 0;
+    width: 0;
+}
+
+/* Logout button */
+.logout {
+    color: #f685ba;
+    font-weight: bold;
+}
+
+.logout:hover {
+    color: #ff4d6d;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    background: #1d3748;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.menu-toggle:hover {
+    background: #0e2a40;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .menu-toggle {
+        right: -35px;
+    }
+}
+span.text{
+    color: #d3d3d3;
+    font-weight: bold;
+}
+svg.icon {
+    color: #f685ba;
+}
