@@ -28,7 +28,7 @@ const BusinessForm = () => {
 
     return (
         <div className="containers">
-            <h2 className="heading">Business Verification Form</h2>
+            <h2 className="heading">Business Form</h2>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
                     <label htmlFor="name" className="label">Name</label>

@@ -16,9 +16,9 @@ function App() {
     return (
 
         <Router>
-
             <div className="App">
                 {/* Set up the routes for different forms */}
+
                 <Routes>
                     <Route path="/" element={<Landing />} /> {/* Landing page */}
 

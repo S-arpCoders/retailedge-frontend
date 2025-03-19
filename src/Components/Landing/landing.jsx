@@ -1,41 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './landing.css';
+import logo from '../../images/Logo.png'; // Correct relative path
+
 
 const Landing = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    // Toggle the menu visibility
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     return (
         <div className="body-container">
-            {/* Top Section - Contains the hamburger menu */}
+            {/* Top Section - Contains the menu links */}
             <div className="top-section">
-                {/*logo  */}
+                {/* Logo */}
                 <div className="logo-container">
-                    <img src="../../Logo.png" width="500" height="150" alt="RetailEdge Logo" className="logo" />
+                    <img src={logo} width="500" height="150" alt="RetailEdge Logo" className="logo" />
                 </div>
 
-                {/* Bootstrap navbar links (only shown when the hamburger menu is open) */}
-                {isMenuOpen && (
-                    <div className="menu-links">
-                        <ul>
-                            <li><a href="/login"  className="text-link">Login</a></li>
-                            <li><a href="/registration" className="text-link">Register</a></li>
-
-                        </ul>
-                    </div>
-                )}
-                <div className="get-started-container">
-                    <a href="/registration" className="get-started-btn">Get Started</a>
+                {/* Direct Menu Links (Always visible) */}
+                <div className="menu-links">
+                    <ul>
+                        <li><a href="/login" className="text-link">Login</a></li>
+                        <li><a href="/registration" className="text-link">Register</a></li>
+                    </ul>
                 </div>
+
+
             </div>
 
             {/* Bottom Section with Content Boxes */}
             <div className="bottom-section">
-
                 <div className="welcome position-relative aos-init aos-animate" data-aos="fade-down" data-aos-delay="100">
                     <h2>WELCOME TO RetailEdge</h2>
                     <p> Unified Inventory Management and POS System for Small Business owners !</p>
@@ -49,17 +39,14 @@ const Landing = () => {
                             <p>
                                 This Management Inventory System Provides real-time updates on stock levels, automatically update inventory after sales transactions,
                                 and offer alerts for low stock and expiring items. This solution will improve operational efficiency and reduce costly errors caused by separate systems.
-
                             </p>
                             <div className="text-center">
                                 <button className="more-btn" onClick={() => window.location.href = '/registration'}>
                                     <span>Get Started</span> <i className="bi bi-chevron-right"></i>
                                 </button>
                             </div>
-
                         </div>
                     </div>
-
 
                     <div className="col-lg-8 d-flex align-items-stretch">
                         <div className="d-flex flex-column justify-content-center">
@@ -92,16 +79,15 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
-                {/* Footer Section - Positioned outside the bottom section */}
+
+                {/* Footer Section */}
                 <footer className="footer">
                     <p>&copy; 2025 RetailEdge. All rights reserved.</p>
                 </footer>
             </div>
-
         </div>
     );
 };
 
 export default Landing;
-
 
