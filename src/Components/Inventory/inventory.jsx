@@ -13,6 +13,7 @@ const Inventory = () => {
     useEffect(() => {
         productService.getAllProducts()
             .then((response) => {
+                console.log(response);
                 setProducts(response);
                 setFilteredProducts(response);
             })

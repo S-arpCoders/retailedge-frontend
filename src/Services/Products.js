@@ -43,8 +43,11 @@ const productService = {
 
     async getAllProducts() {
         try {
+            console.log("env API_BASE_URL  : " + process.env.API_BASE_URL);
+            console.log("env a  : " + process.env.a);
+            console.log("env b  : " + process.env.a);
             const response = await fetch(BASE_URL);
-
+                console.log(response);
             if (!response.ok) throw new Error("Failed to fetch products");
 
             return await response.json();
