@@ -8,6 +8,28 @@ RetailEdge is a unified Inventory Management and POS System designed for small b
 https://github.com/user-attachments/assets/87be0612-68bb-4927-91d5-cb355b8348a0
 
 
+To prominently display the backend link in your `README.md`, you can add a **"Backend API"** section near the top and also include it in the **"API Configuration"** section. Here's how:
+
+---
+
+# RetailEdge Frontend  
+
+RetailEdge is a unified Inventory Management and POS System designed for small business owners. This React-based frontend communicates with the backend to provide real-time updates on stock levels, sales tracking, low-stock alerts, and more.  
+
+## 🌐 Backend API  
+
+🔗 **RetailEdge Backend:** [s-arpcoders-retailedge-backend](https://github.com/S-arpCoders/RetailEdge-Backend)
+📡 **API Base URL:** `http://your-backend-api-url/api/internal`  
+
+🔗 **Database Service:** [s-arpcoders-database-service](https://github.com/S-arpCoders/Database_Service)
+
+---
+
+## 🔧 API Configuration  
+
+Modify `src/config.js` to match your backend API URL:  
+```js
+export const API_BASE_URL = "http://your-back
 
 ## 🚀 Features  
 
