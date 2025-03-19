@@ -1,30 +1,35 @@
 /* Full-page gradient background */
-body{
+body {
   background: linear-gradient(to bottom, #ffe4e1, #5e548e);
+  margin: 0;
 }
 
+/* Report layout */
 .report-layout {
   display: flex;
-  height: 100vh;
+  flex-direction: column; /* Stack containers vertically */
+  height: 100vh; /* Take up the full viewport height */
   overflow: hidden;
-
 }
 
-/* Sidebar takes fixed space */
+/* Sidebar (if exists) */
 .sidebar {
   flex-shrink: 0;
   height: 100vh;
 }
 
-/* Report content layout */
+/* Report container */
 .report-container {
-  flex-grow: 1;
+  flex-grow: 1; /* Take up the remaining height */
   background: linear-gradient(to bottom, #192a51, #5e548e);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   overflow-y: auto;
+  height: 100%; /* Full height */
+  min-height: 100%;
+  min-width: 100%;
 }
 
 /* Report title */
@@ -40,28 +45,28 @@ body{
 /* Flex container to align charts side by side */
 .chart-grid {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 90%;
+  flex-direction: row; /* Place charts side by side */
+  justify-content: space-between; /* Distribute space evenly between the charts */
+  gap: 20px; /* Space between charts */
+  width: 100%; /* Full width */
   max-width: 1600px;
+  flex-grow: 1;
+  padding: 20px;
 }
 
 /* Individual chart styling */
 .chart-section {
-  flex: 1;
   background: white;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  min-width: 400px;
-}
-
-/* Chart labels */
-.chart-label {
-  font-size: 1.8rem;
-  color: #192a51;
-  margin-bottom: 10px;
+  flex-grow: 1; /* Allow the chart section to grow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px; /* Ensure charts have a minimum width */
+  height: 100%; /* Take up the full height available */
 }
 
 /* Loading and error messages */
@@ -75,7 +80,12 @@ body{
 /* Responsive Design */
 @media (max-width: 1024px) {
   .chart-grid {
-    flex-direction: column;
+    flex-direction: column; /* Stack charts vertically on smaller screens */
     align-items: center;
+  }
+  .chart-section {
+    width: 90%; /* Make charts fit on smaller screens */
+    height: 400px; /* Set a reasonable height for smaller screens */
+    min-height: 400px;
   }
 }
