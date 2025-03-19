@@ -6,7 +6,7 @@
   justify-content: center;
   padding: 20px;
   background: linear-gradient(to bottom, #aaa1c8, #967aa1);
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .inventory-title {
@@ -158,4 +158,7 @@ button.search-button:hover {
 }
 div.search-bar{
   background-color: #192a51;
+}
+span.price{
+  background-color: #f685ba;
 }
