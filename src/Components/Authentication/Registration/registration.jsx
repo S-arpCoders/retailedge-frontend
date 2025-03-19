@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; // Import Link here
 import './registration.css';
 import { authService } from '../../../Services/Authentication';
-import logo from '../../images/Logo.png';
+
+
 
 const RegistrationForm = () => {
     const [formData, setFormData] = useState({
@@ -36,7 +37,8 @@ const RegistrationForm = () => {
     return (
         <div className="container">
             {/* Logo on top */}
-            <img src={logo} alt="Logo" className="logo" />
+
+
 
             <form onSubmit={handleSubmit} className="form">
                 <h2>Create Account</h2>
